@@ -4,6 +4,7 @@ filetype plugin on
 filetype indent on
 syntax on
 set number
+set relativenumber
 set cursorline
 set cursorcolumn
 
@@ -39,6 +40,7 @@ set noshowmode
 
 " airline fonts
 let g:airline_powerline_fonts = 0
+
 " have j and k navigate visual lines rather than logical ones
 nmap j gj
 nmap k gk
