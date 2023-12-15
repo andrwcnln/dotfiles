@@ -13,21 +13,17 @@ set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 " plugins
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " colours
-colorscheme gruvbox
 set bg=dark
 set termguicolors
+colorscheme tokyonight
 
 " backspace fix on windows
 set nocompatible
@@ -40,3 +36,10 @@ set nolist
 
 " don't show mode as it is shown in airline
 set noshowmode
+
+" airline fonts
+let g:airline_powerline_fonts = 0
+
+" vim-gitgutter
+set updatetime=100
+set signcolumn=yes
