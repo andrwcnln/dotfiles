@@ -6,6 +6,9 @@ if status is-interactive
 
     fish_add_path /usr/local/go/bin
     fish_add_path ~/go/bin
+    fish_add_path ~/.zig
+
+    alias lg "lazygit"
 end
 rvm default
 
