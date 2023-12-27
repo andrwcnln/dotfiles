@@ -4,5 +4,12 @@ font:
     style: Regular
  size: 9.0
 
+cursor:
+  style:
+    shape: "Beam"
+    blinking: "On"
+  vi_mode_style:
+    shape: "Block"
+
 import:
   - ~/.config/alacritty/themes/tokyo-night.yml
