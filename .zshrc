@@ -1,13 +1,3 @@
-export VISUAL=nvim
-export EDITOR=$VISUAL
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:~/go/bin
-export PATH=$PATH:~/.zig
-
-# rvm default
-
-alias lg="lazygit"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -122,5 +112,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-source /home/andrew/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
