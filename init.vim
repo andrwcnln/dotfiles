@@ -18,3 +18,7 @@ Plug 'romgrk/barbar.nvim'
 call plug#end()
 
 colo tokyonight-night
+
+if exists("g:neovide")
+	set guifont=Geist\ Mono:h9
+endif
