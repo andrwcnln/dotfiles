@@ -22,7 +22,11 @@ export PATH="$PATH:$ZVM_INSTALL/"
 
 # rvm default
 
+# aliases
 alias lg="lazygit"
+alias nv="nvim"
+alias nvd="neovide"
+alias mc="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia minecraft-launcher"
 
 lolcat -F 0.5 ~/.zshbanner
 
