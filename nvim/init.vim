@@ -20,6 +20,7 @@ Plug 'nvim-tree/nvim-web-devicons' " OPTIONAL: for file icons
 Plug 'freddiehaddad/feline.nvim'
 "Plug 'epwalsh/obsidian.nvim'
 "Plug 'hrsh7th/nvim-cmp'
+Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 set bg=dark

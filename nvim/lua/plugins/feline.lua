@@ -141,6 +141,13 @@ win_components.active[1][4] = {
 	hl = { fg = 'bg' }
     }
 }
+win_components.active[1][5] = {
+    provider = 'file_type',
+    right_sep = {
+	str = 'block',
+	hl = { fg = 'bg' }
+    }
+}
 win_components.active[3][1] = {
     provider = 'git_add',
     hl = { fg = 'fg', bg = 'blue' },
