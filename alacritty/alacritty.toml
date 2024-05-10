@@ -11,7 +11,7 @@ shape = "Block"
 size = 9.0
 
 [font.normal]
-family = "Geist Mono"
+family = "Geist Mono Nerd Font"
 style = "Regular"
 
 [window]
