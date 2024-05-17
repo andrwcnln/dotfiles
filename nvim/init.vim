@@ -9,7 +9,7 @@ Plug 'ellisonleao/gruvbox.nvim'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'ghifarit53/tokyonight-vim'
 "Plug 'airblade/vim-gitgutter'
-Plug 'folke/tokyonight.nvim'
+"Plug 'folke/tokyonight.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'MunifTanjim/nui.nvim'
@@ -21,6 +21,21 @@ Plug 'freddiehaddad/feline.nvim'
 "Plug 'epwalsh/obsidian.nvim'
 "Plug 'hrsh7th/nvim-cmp'
 Plug 'neovim/nvim-lspconfig'
+"Plug 'hrsh7th/cmp-nvim-lsp'
+"Plug 'hrsh7th/cmp-buffer'
+"Plug 'hrsh7th/cmp-path'
+"Plug 'hrsh7th/cmp-cmdline'
+"Plug 'hrsh7th/nvim-cmp'
+" For vsnip users.
+"Plug 'hrsh7th/cmp-vsnip'
+"Plug 'hrsh7th/vim-vsnip'
+"Plug 'rafamadriz/friendly-snippets'
+Plug 'mathworks/MATLAB-extension-for-vscode'
+" main one
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+" 9000+ Snippets
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 set bg=dark

@@ -103,8 +103,8 @@ win_components.active[1][1] = {
     provider = {
         name = 'file_info',
         opts = {
-            type = 'relative'
-        }
+	    type = 'relative',
+    	}
     },
     hl = { fg = 'bg', bg = 'fg' },
     left_sep = {
@@ -117,7 +117,18 @@ win_components.active[1][1] = {
 	{
 	str = 'right_filled'
 	}
-    }
+    },
+    icon = function() 
+	local icon_str, icon_color = require('nvim-web-devicons').get_icon_color(
+            vim.fn.expand('%:t'),
+            nil, -- extension is already computed by nvim-web-devicons
+            { default = true }
+        )
+	if vim.api.nvim_buf_get_option(0, 'filetype') == 'markdown' then
+	    icon_color = 'bg'
+	end
+	return { str = icon_str, hl = { fg = icon_color } }
+    end
 }
 win_components.active[1][2] = {
     provider = 'file_size',
@@ -171,10 +182,12 @@ win_components.active[3][5] = {
     provider = 'time',
     left_sep = {
 	str = 'block'
-    }
+    },
+	right_sep = {
+	str = 'block'
+	}
 }
 win_config.components = win_components
 require('feline').winbar.setup(win_config)
 local theme = require('themes.gruvbox')
 require('feline').use_theme(theme)
-
