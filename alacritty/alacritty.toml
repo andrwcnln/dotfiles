@@ -1,4 +1,4 @@
-import = ["/home/andrew/.config/alacritty/themes/tokyo-night.toml"]
+import = ["/home/andrew/.config/alacritty/themes/gruvbox-dark.toml"]
 
 [cursor.style]
 blinking = "On"
