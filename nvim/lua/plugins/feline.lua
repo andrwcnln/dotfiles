@@ -26,7 +26,7 @@ status_components.active[1][1] = {
         return {
             name = (require('feline.providers.vi_mode').get_mode_highlight_name()) .. " ",
             bg = require('feline.providers.vi_mode').get_mode_color(),
-	    fg = 'bg',
+	    	fg = 'bg',
             style = 'bold'
         }
     end,
@@ -45,19 +45,17 @@ status_components.active[1][1] = {
         end
 	}
     },
-     -- Use the name of the mode instead of the icon
+    -- Use the name of the mode instead of the icon
     icon = ''
 }
-
 status_components.active[3][1] = {
-    provider = {
-        name = 'position',
-        opts = {
-            padding = true
-        }
-    }
+	provider = 'word_count'
 }
 status_components.active[3][2] = {
+    provider = 'position'
+    
+}
+status_components.active[3][3] = {
     provider = 'line_percentage',
     hl = {
 	fg = 'blue',
@@ -69,7 +67,7 @@ status_components.active[3][2] = {
 	str = 'block'
     }
 } 
-status_components.active[3][3] = {
+status_components.active[3][4] = {
     provider = 'scroll_bar'
 }
 local custom_providers = {
@@ -84,7 +82,10 @@ local custom_providers = {
     end,
     git_change = function()
         return git_diff('changed'), '  '
-    end
+    end,
+	word_count = function()
+		return vim.fn.wordcount().words .. 'W '
+	end
 }
 status_config.components = status_components
 status_config.custom_providers = custom_providers

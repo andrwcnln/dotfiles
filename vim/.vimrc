@@ -21,3 +21,11 @@ nmap k gk
 " use H and L for beginning/end of line
 nmap H ^
 nmap L $
+
+" wrap text and split on words
+set wrap
+set linebreak
+set nolist
+
+set shiftwidth=4
+set tabstop=4
