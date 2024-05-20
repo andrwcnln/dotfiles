@@ -51,10 +51,7 @@ status_components.active[1][1] = {
 
 status_components.active[3][1] = {
     provider = {
-        name = 'position',
-        opts = {
-            padding = true
-        }
+        name = 'position'
     }
 }
 status_components.active[3][2] = {
@@ -74,7 +71,7 @@ status_components.active[3][3] = {
 }
 local custom_providers = {
     time = function()
-         return tostring(vim.fn.strftime('%H:%M'))
+	return tostring(vim.fn.strftime('%H:%M'))
     end,
     git_add = function()
         return git_diff('added'), '  '
@@ -84,6 +81,12 @@ local custom_providers = {
     end,
     git_change = function()
         return git_diff('changed'), '  '
+    end,
+    date = function()
+	return tostring(vim.fn.strftime('%Y-%m-%d'))
+    end,
+    battery = function()
+	return require('battery').get_status_line()      	
     end
 }
 status_config.components = status_components
@@ -179,6 +182,24 @@ win_components.active[3][4] = {
     right_sep = 'right_rounded'
 }
 win_components.active[3][5] = {
+    provider = 'battery',
+    left_sep = {
+	str = 'block'
+    },
+	right_sep = {
+	str = 'block'
+    }	
+}
+win_components.active[3][6] = {
+    provider = 'date',
+    left_sep = {
+	str = 'block'
+    },
+	right_sep = {
+	str = 'block'
+	}
+}
+win_components.active[3][7] = {
     provider = 'time',
     left_sep = {
 	str = 'block'

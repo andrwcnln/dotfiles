@@ -36,6 +36,8 @@ Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 " 9000+ Snippets
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'xiyaowong/transparent.nvim'
+Plug 'justinhj/battery.nvim'
 call plug#end()
 
 set bg=dark
