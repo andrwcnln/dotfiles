@@ -54,5 +54,7 @@ set noshowmode
 set updatetime=100
 set signcolumn=yes
 
+set laststatus=3
+
 " .config/nvim/lua/init.lua
 lua require('init')

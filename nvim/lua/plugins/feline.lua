@@ -49,25 +49,31 @@ status_components.active[1][1] = {
     icon = ''
 }
 status_components.active[3][1] = {
-	provider = 'word_count'
-}
-status_components.active[3][2] = {
-    provider = 'position'
-}
-status_components.active[3][3] = {
-    provider = 'line_percentage',
-    hl = {
-	fg = 'blue',
-    },
+    provider = 'battery',
     left_sep = {
 	str = 'block'
     },
-    right_sep = {
+	right_sep = {
 	str = 'block'
-    }
-} 
-status_components.active[3][4] = {
-    provider = 'scroll_bar'
+    }	
+}
+status_components.active[3][2] = {
+    provider = 'date',
+    left_sep = {
+	str = 'block'
+    },
+	right_sep = {
+	str = 'block'
+	}
+}
+status_components.active[3][3] = {
+    provider = 'time',
+    left_sep = {
+	str = 'block'
+    },
+	right_sep = {
+	str = 'block'
+	}
 }
 local custom_providers = {
     time = function()
@@ -185,31 +191,26 @@ win_components.active[3][4] = {
     right_sep = 'right_rounded'
 }
 win_components.active[3][5] = {
-    provider = 'battery',
-    left_sep = {
-	str = 'block'
-    },
-	right_sep = {
-	str = 'block'
-    }	
+	provider = 'word_count',
+	left_sep = 'block'
 }
 win_components.active[3][6] = {
-    provider = 'date',
-    left_sep = {
-	str = 'block'
-    },
-	right_sep = {
-	str = 'block'
-	}
+    provider = 'position'
 }
 win_components.active[3][7] = {
-    provider = 'time',
+    provider = 'line_percentage',
+    hl = {
+	fg = 'blue',
+    },
     left_sep = {
 	str = 'block'
     },
-	right_sep = {
+    right_sep = {
 	str = 'block'
-	}
+    }
+} 
+win_components.active[3][8] = {
+    provider = 'scroll_bar'
 }
 win_config.components = win_components
 require('feline').winbar.setup(win_config)
