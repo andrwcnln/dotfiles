@@ -38,6 +38,9 @@ Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'xiyaowong/transparent.nvim'
 Plug 'justinhj/battery.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'rcarriga/nvim-notify'
+Plug 'folke/noice.nvim'
 call plug#end()
 
 set bg=dark

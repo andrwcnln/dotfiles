@@ -40,7 +40,7 @@ status_components.active[1][1] = {
         hl = function()
             return {
                 fg = require('feline.providers.vi_mode').get_mode_color(),
-		bg = 'bg'
+				bg = 'bg'
             }
         end
 	}
@@ -51,7 +51,11 @@ status_components.active[1][1] = {
 status_components.active[3][1] = {
     provider = 'battery',
     left_sep = {
-	str = 'block'
+		{
+			str = 'left',
+			hl = {fg = 'fg'}
+		},
+		{str = 'block'}
     },
 	right_sep = {
 	str = 'block'
@@ -59,25 +63,51 @@ status_components.active[3][1] = {
 }
 status_components.active[3][2] = {
     provider = 'date',
+	hl = function()
+        return {
+            name = (require('feline.providers.vi_mode').get_mode_highlight_name()) .. " ",
+            fg = require('feline.providers.vi_mode').get_mode_color(),
+	    	bg = 'bg'
+        }
+	end,
     left_sep = {
-	str = 'block'
-    },
+		{str = 'left',
+		hl = function() 
+			return { fg = require('feline.providers.vi_mode').get_mode_color() }
+		end
+    	},
+		{str = 'block'}
+	},
 	right_sep = {
 	str = 'block'
 	}
 }
 status_components.active[3][3] = {
     provider = 'time',
+    hl = function()
+        return {
+            name = (require('feline.providers.vi_mode').get_mode_highlight_name()) .. " ",
+            bg = require('feline.providers.vi_mode').get_mode_color(),
+	    	fg = 'bg',
+            style = 'bold'
+        }
+    end,
     left_sep = {
-	str = 'block'
-    },
+        str = 'left_filled',
+        hl = function()
+            return {
+                fg = require('feline.providers.vi_mode').get_mode_color(),
+		bg = 'bg'
+            }
+        end    },
 	right_sep = {
 	str = 'block'
 	}
 }
 local custom_providers = {
     time = function()
-	return tostring(vim.fn.strftime('%H:%M'))
+		local time = tostring(vim.fn.strftime('%H:%M'))
+		return '  ' .. time
     end,
     git_add = function()
         return git_diff('added'), '  '
@@ -167,8 +197,14 @@ win_components.active[1][4] = {
 win_components.active[1][5] = {
     provider = 'file_type',
     right_sep = {
-	str = 'block',
-	hl = { fg = 'bg' }
+		{
+		str = 'block',
+		hl = { fg = 'bg' }
+		},
+		{
+		str = 'right',
+		hl = { fg = 'fg' }
+		}
     }
 }
 win_components.active[3][1] = {
