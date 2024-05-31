@@ -1,7 +1,9 @@
 local coq = require("coq")
+local util = require("lspconfig.util")
 require('lspconfig').matlab_ls.setup(
     coq.lsp_ensure_capabilities({
         cmd = { "node", "/mathworks/home/aconlin/MATLAB-language-server/out/index.js", "--stdio" },
+		root_dir = util.root_pattern('mw_anchor'),
         settings = {
     	    MATLAB = {
                 indexWorkspace = false,
