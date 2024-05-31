@@ -14,9 +14,9 @@ set relativenumber
 set termguicolors
 colo tokyonight
 
-" have j and k navigate visual lines rather than logical ones
-nmap j gj
-nmap k gk
+" have j and k navigate visual lines rather than logical ones in markdown
+autocmd FileType markdown nmap <buffer> j gj
+autocmd FileType markdown nmap <buffer> k gk
 
 " use H and L for beginning/end of line
 nmap H ^
