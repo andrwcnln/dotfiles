@@ -51,9 +51,9 @@ set bg=dark
 
 set noshowmode
 
-"if exists("g:neovide")
-"	set guifont=MesloLGM_Nerd_Font_Mono:h10:cANSI:qDRAFT
-"endif
+if exists("g:neovide")
+	set guifont=GeistMono_Nerd_Font:h10:cANSI:qDRAFT
+endif
 
 set updatetime=100
 set signcolumn=yes
