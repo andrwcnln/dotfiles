@@ -30,7 +30,7 @@ Plug 'neovim/nvim-lspconfig'
 "Plug 'hrsh7th/cmp-vsnip'
 "Plug 'hrsh7th/vim-vsnip'
 "Plug 'rafamadriz/friendly-snippets'
-Plug 'mathworks/MATLAB-extension-for-vscode'
+"Plug 'mathworks/MATLAB-extension-for-vscode'
 " main one
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 " 9000+ Snippets
@@ -41,6 +41,7 @@ Plug 'justinhj/battery.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'rcarriga/nvim-notify'
 Plug 'folke/noice.nvim'
+"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 call plug#end()
 
 set bg=dark

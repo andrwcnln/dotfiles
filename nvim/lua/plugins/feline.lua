@@ -24,7 +24,7 @@ status_components.active[1][1] = {
     provider = 'vi_mode',
     hl = function()
         return {
-            name = (require('feline.providers.vi_mode').get_mode_highlight_name()) .. " ",
+            name = (require('feline.providers.vi_mode').get_mode_highlight_name()),
             bg = require('feline.providers.vi_mode').get_mode_color(),
 	    	fg = 'bg',
             style = 'bold'
@@ -40,7 +40,7 @@ status_components.active[1][1] = {
         hl = function()
             return {
                 fg = require('feline.providers.vi_mode').get_mode_color(),
-				bg = 'bg'
+				bg = 'bg1'
             }
         end
 	}
@@ -50,10 +50,11 @@ status_components.active[1][1] = {
 }
 status_components.active[3][1] = {
     provider = 'battery',
+	hl = {bg = 'bg3'},
     left_sep = {
 		{
-			str = 'left',
-			hl = {fg = 'fg'}
+			str = 'left_filled',
+			hl = {fg = 'bg3',bg = 'bg1'}
 		},
 		{str = 'block'}
     },
@@ -65,18 +66,19 @@ status_components.active[3][2] = {
     provider = 'date',
 	hl = function()
         return {
-            name = (require('feline.providers.vi_mode').get_mode_highlight_name()) .. " ",
-            fg = require('feline.providers.vi_mode').get_mode_color(),
-	    	bg = 'bg'
+            fg = 'fg',
+	    	bg = 'bg4'
         }
 	end,
     left_sep = {
-		{str = 'left',
+		{str = 'left_filled',
 		hl = function() 
-			return { fg = require('feline.providers.vi_mode').get_mode_color() }
+			return { fg = 'bg4', bg = 'bg3' }
 		end
     	},
-		{str = 'block'}
+		{
+			str = 'block',
+		}
 	},
 	right_sep = {
 	str = 'block'
@@ -97,7 +99,7 @@ status_components.active[3][3] = {
         hl = function()
             return {
                 fg = require('feline.providers.vi_mode').get_mode_color(),
-		bg = 'bg'
+				bg = 'bg4'
             }
         end    },
 	right_sep = {
@@ -119,7 +121,11 @@ local custom_providers = {
         return git_diff('changed'), '  '
     end,
 	word_count = function()
-		return vim.fn.wordcount().words .. 'W '
+		if vim.api.nvim_buf_get_option(0, 'filetype') == 'markdown' then
+			return vim.fn.wordcount().words .. 'W '
+		else
+			return ""
+		end
 	end,
     date = function()
 		return tostring(vim.fn.strftime('%Y-%m-%d'))
@@ -155,9 +161,10 @@ win_components.active[1][1] = {
     right_sep = {
 	{
 	str = 'block'
-        },
+    },
 	{
-	str = 'right_filled'
+	str = 'right_filled',
+	hl = { bg = 'bg4' }
 	}
     },
     icon = function() 
@@ -174,36 +181,39 @@ win_components.active[1][1] = {
 }
 win_components.active[1][2] = {
     provider = 'file_size',
+	hl = { bg = 'bg4' },
     left_sep = 'block',
     right_sep = {
-	str = 'block',
-	hl = { fg = 'bg' }
+	str = 'block'
     }
 }
 win_components.active[1][3] = {
     provider = 'file_encoding',
+	hl = { bg = 'bg4' },
     right_sep = {
 	str = 'block',
-	hl = { fg = 'bg' }
+	hl = { fg = 'bg4' }
     }
 }
 win_components.active[1][4] = {
     provider = 'file_format',
+	hl = { bg = 'bg4' },
     right_sep = {
 	str = 'block',
-	hl = { fg = 'bg' }
+	hl = { fg = 'bg4' }
     }
 }
 win_components.active[1][5] = {
     provider = 'file_type',
+	hl = { bg = 'bg4' },
     right_sep = {
 		{
 		str = 'block',
-		hl = { fg = 'bg' }
+		hl = { fg = 'bg4' }
 		},
 		{
-		str = 'right',
-		hl = { fg = 'fg' }
+		str = 'right_filled',
+		hl = { fg = 'bg4', bg = 'bg1' }
 		}
     }
 }
@@ -228,16 +238,29 @@ win_components.active[3][4] = {
 }
 win_components.active[3][5] = {
 	provider = 'word_count',
-	left_sep = 'block'
+	hl = { bg = 'bg3' },
+	left_sep = {
+		{str = 'left_filled', hl = {fg = 'bg3', bg = 'bg1'}, always_visible = true},
+		{str = 'block', hl = {fg = 'bg3'}, always_visible = true}
+	}
 }
 win_components.active[3][6] = {
-    provider = 'position'
+    provider = {
+		name = 'position',
+		opts = {
+			padding = {line = 3, col = 2},
+			format = 'L{line} C{col}'
+		}
+	},
+	hl = { bg = 'bg4' },
+	left_sep = {
+		{str = 'left_filled', hl = {fg = 'bg4', bg = 'bg3'}},
+		{str = 'block', hl = {fg = 'bg4'}}
+	}
 }
 win_components.active[3][7] = {
     provider = 'line_percentage',
-    hl = {
-	fg = 'blue',
-    },
+	hl = { bg = 'bg4' },
     left_sep = {
 	str = 'block'
     },
@@ -246,7 +269,8 @@ win_components.active[3][7] = {
     }
 } 
 win_components.active[3][8] = {
-    provider = 'scroll_bar'
+    provider = 'scroll_bar',
+	hl = { bg = 'bg4' }
 }
 win_config.components = win_components
 require('feline').winbar.setup(win_config)
