@@ -7,9 +7,9 @@ call plug#begin()
 Plug 'ellisonleao/gruvbox.nvim'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
-Plug 'ghifarit53/tokyonight-vim'
+"Plug 'ghifarit53/tokyonight-vim'
 "Plug 'airblade/vim-gitgutter'
-"Plug 'folke/tokyonight.nvim'
+Plug 'folke/tokyonight.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'MunifTanjim/nui.nvim'
@@ -42,10 +42,12 @@ Plug 'MunifTanjim/nui.nvim'
 Plug 'rcarriga/nvim-notify'
 Plug 'folke/noice.nvim'
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+Plug 'luukvbaal/statuscol.nvim'
+"Plug 'linrongbin16/lsp-progress.nvim'
 call plug#end()
 
 set bg=dark
-"colo gruvbox
+colo default
 "let g:airline_theme = 'gruvbox'
 "let g:airline_powerline_fonts = 1
 
@@ -55,10 +57,12 @@ set noshowmode
 "	set guifont=MesloLGM_Nerd_Font_Mono:h10:cANSI:qDRAFT
 "endif
 
-set updatetime=100
-set signcolumn=yes
+"set updatetime=100
+"set signcolumn=yes:1
+"let &stc='%s%=%{v:relnum?v:relnum:v:lnum} '
 
 set laststatus=3
+set spell
 
 " .config/nvim/lua/init.lua
 lua require('init')
