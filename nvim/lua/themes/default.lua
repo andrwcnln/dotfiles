@@ -12,7 +12,7 @@ local bg = function(n)
 end
 
 return {
-    bg = '#000000',
+    bg = bg("Normal"),
 	black = '#000000',
     fg = fg("Normal"),
     green = fg("DiagnosticOk"),
