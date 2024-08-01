@@ -136,7 +136,7 @@ win_components.active[3][3] = {
 	}
 }
 win_components.active[3][4] = {
-	provider = 'scroll_bar',
+	provider = 'scroll_bar'
 }
 win_config.components = win_components
 win_config.disable = { filetypes = { '^neo[-]tree$' } }
