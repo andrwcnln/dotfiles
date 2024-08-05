@@ -8,7 +8,7 @@ shape = "Beam"
 shape = "Block"
 
 [font]
-size = 9.0
+size = 11.0
 
 [font.normal]
 family = "Geist Mono Nerd Font"
@@ -16,3 +16,5 @@ style = "Regular"
 
 [window]
 opacity = 0.8
+dimensions = { columns = 75, lines = 25 }
+resize_increments = true

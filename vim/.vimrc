@@ -19,8 +19,8 @@ autocmd FileType markdown nmap <buffer> j gj
 autocmd FileType markdown nmap <buffer> k gk
 
 " use H and L for beginning/end of line
-nmap H ^
-nmap L $
+map H ^
+map L $
 
 " wrap text and split on words
 set wrap
