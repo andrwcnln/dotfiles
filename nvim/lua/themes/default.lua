@@ -12,9 +12,9 @@ local bg = function(n)
 end
 
 return {
-    bg = bg("Normal"),
+    bg = fg("StatusLine"),
 	black = '#000000',
-    fg = fg("Normal"),
+    fg = bg("StatusLine"),
     green = fg("DiagnosticOk"),
     blue = fg("DiagnosticHint"),
     orange = fg("DiagnosticWarn"),
