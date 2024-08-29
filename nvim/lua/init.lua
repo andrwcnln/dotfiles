@@ -6,7 +6,7 @@ require('plugins.matlab_ls')
 require('plugins.lua_ls')
 require('plugins.treesitter')
 require('battery').setup()
-require('plugins.noice')
+--require('plugins.noice')
 require('plugins.statuscol')
 vim.diagnostic.config({
   virtual_text = false,
