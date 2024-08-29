@@ -7,7 +7,7 @@ require('lspconfig').matlab_ls.setup(
         settings = {
     	    MATLAB = {
                 indexWorkspace = false,
-                installPath = "/usr/local/MATLAB/R2024a",
+                installPath = "/usr/local/MATLAB/R2024b",
                 matlabConnectionTiming = "onStart",
                 telemetry = false
             }
