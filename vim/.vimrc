@@ -25,7 +25,7 @@ highlight NormalFloat guibg=#333333
 highlight CursorLineNr guibg=NONE gui=bold
 
 """ MARKDOWN
-" have j and k navigate visual lines rather than logical ones in markdown
+" have j and k navigate visual lines rather than logical ones
 " wrap text and split on words
 " turn spell check on
 autocmd FileType markdown 
@@ -40,6 +40,8 @@ autocmd FileType markdown
 " use H and L for beginning/end of line
 map H ^
 map L $
+
+set mouse=nv
 
 set shiftwidth=4
 set tabstop=4
