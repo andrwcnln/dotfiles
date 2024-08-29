@@ -3,8 +3,8 @@ let &packpath=&runtimepath
 source ~/.vimrc
 
 call plug#begin()
-Plug 'ellisonleao/gruvbox.nvim'
-Plug 'folke/tokyonight.nvim'
+" Plug 'ellisonleao/gruvbox.nvim'
+" Plug 'folke/tokyonight.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'MunifTanjim/nui.nvim'
@@ -21,18 +21,18 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'xiyaowong/transparent.nvim'
 Plug 'justinhj/battery.nvim'
 Plug 'MunifTanjim/nui.nvim'
-Plug 'rcarriga/nvim-notify'
+" Plug 'rcarriga/nvim-notify'
 Plug 'folke/noice.nvim'
 Plug 'luukvbaal/statuscol.nvim'
 call plug#end()
-
-set noshowmode
 
 if exists("g:neovide")
 	set guifont=GeistMono_Nerd_Font:h10:cANSI:qDRAFT
 endif
 
+set noshowmode
 set laststatus=3
+set cmdheight=1
 
 " .config/nvim/lua/init.lua
 lua require('init')
