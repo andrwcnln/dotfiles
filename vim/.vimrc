@@ -6,6 +6,7 @@ syntax on
 set cursorline
 set cursorcolumn
 set nospell
+set autochdir
 
 " disable wrapping
 set nowrap
@@ -18,11 +19,6 @@ set relativenumber
 set termguicolors
 set bg=dark
 colo quiet
-highlight Keyword gui=bold
-highlight Comment gui=italic
-highlight Constant guifg=#999999
-highlight NormalFloat guibg=#333333
-highlight CursorLineNr guibg=NONE gui=bold
 
 """ MARKDOWN
 " have j and k navigate visual lines rather than logical ones
