@@ -8,9 +8,9 @@ call plug#begin()
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'MunifTanjim/nui.nvim'
-Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v3.x' }
+"Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v3.x' }
 Plug 'lewis6991/gitsigns.nvim' " OPTIONAL: for git status
-Plug 'nvim-tree/nvim-web-devicons' " OPTIONAL: for file icons
+" Plug 'nvim-tree/nvim-web-devicons' " OPTIONAL: for file icons
 Plug 'freddiehaddad/feline.nvim'
 Plug 'neovim/nvim-lspconfig'
 " main one
@@ -27,12 +27,16 @@ Plug 'luukvbaal/statuscol.nvim'
 call plug#end()
 
 if exists("g:neovide")
-	set guifont=GeistMono_Nerd_Font:h10:cANSI:qDRAFT
+	set guifont=JetBrains_Mono:h13:cANSI:qDRAFT
 endif
 
+colo mine
 set noshowmode
 set laststatus=3
-set cmdheight=1
+set cmdheight=0
+
+set statusline=%{%v:lua.require('plugins.statusline').statusline()%}
+set winbar=%{%v:lua.require('plugins.statusline').winbar()%}
 
 " .config/nvim/lua/init.lua
 lua require('init')

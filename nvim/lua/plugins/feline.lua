@@ -18,16 +18,19 @@ status_components.active[1][1] = {
     	}
     end,
 	left_sep = { str = 'block' },
-	right_sep = { str = 'block' },
 	-- Use the name of the mode instead of the icon
 	icon = ''
 }
 status_components.active[1][2] = {
 	provider = 'git_branch',
-	right_sep = 'block'
+	left_sep = 'block',
+	icon = ''
 }
 status_components.active[1][3] = {
-	provider = 'lsp_client_names'
+	provider = 'lsp_client',
+	left_sep = 'block',
+	icon = '',
+	update = {'WinClosed','BufDelete'}
 }
 status_components.active[3][1] = {
 	provider = 'battery',
@@ -44,7 +47,8 @@ status_components.active[3][3] = {
 local custom_providers = {
 	time = function()
 		local time = tostring(vim.fn.strftime('%H:%M'))
-		return ' ' .. time
+		--return ' ' .. time
+		return time
 	end,
 	word_count = function()
 		if vim.api.nvim_buf_get_option(0, 'filetype') == 'markdown' then
@@ -59,13 +63,27 @@ local custom_providers = {
 	battery = function()
 		return require('battery').get_status_line()
 	end,
-	lsp_progress = function()
-		--if not lsp.is_lsp_attached() then return ' 󱏎 LSP ' end
-		return string.format(' %s ', require('lsp-progress').progress())
+	lsp_client = function()
+		local clients = vim.lsp.buf_get_clients()
+		if next(clients) ~= nil then
+			local name = string.format('%s',clients[1].name)
+			--if name == 'matlab_ls' then
+		--		local root = clients[1].root_dir
+		--		local sandbox = root:match(".+/([^/]+)$")
+		--		local handle = io.popen('p4 opened | grep tnrCRCDecode | sed \'s/^[^#]*//g\'')
+		--		local result = handle:read("*a")
+		--		return string.format('%s -> %s%s',name,result,sandbox)
+			--else
+			return name
+			--end
+		else
+			return ''
+		end
 	end
 }
 status_config.components = status_components
 status_config.custom_providers = custom_providers
+status_config.highlight_reset_triggers = {'ColorScheme'}
 require('feline').setup(status_config)
 -- Initialize the win_components table
 local win_components = {
@@ -81,14 +99,12 @@ win_components.active[1][1] = {
 	provider = {
 		name = 'file_info',
 		opts = {
-			type = 'unique',
+			type = 'unique'
 		}
 	},
-	left_sep = {
-		str = 'block'
-	},
-	right_sep = { str = 'block' }
-	}
+	icon = '',
+	left_sep = 'block'
+}
 win_components.active[1][2] = {
 	provider = 'file_size',
 	left_sep = 'block',

@@ -1,11 +1,14 @@
 --vim.cmd('colorscheme default')
 --require('plugins.gruvbox')
-require('plugins.feline')
-require('gitsigns').setup()
+--require('plugins.feline')
+require('gitsigns').setup({numhl = true})
 require('plugins.matlab_ls')
 require('plugins.lua_ls')
 require('plugins.treesitter')
-require('battery').setup()
+require('battery').setup({
+	show_status_when_no_battery = false,
+	show_percent = true
+})
 --require('plugins.noice')
 require('plugins.statuscol')
 vim.diagnostic.config({
