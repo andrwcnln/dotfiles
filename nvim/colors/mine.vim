@@ -20,4 +20,4 @@ highlight Comment gui=italic
 highlight Constant guifg=#999999
 highlight NormalFloat guibg=#666666
 highlight CursorLineNr guibg=NONE gui=bold
-highlight StatusLine guibg=Normal guifg=Normal
+" highlight StatusLine guibg=Normal guifg=Normal

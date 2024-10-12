@@ -2,12 +2,16 @@ local M = {}
 
 M.modeMap = {
 	n = "NORMAL", i = "INSERT", R = "REPLACE", v = "VISUAL", V = "V-LINE", [''] = "V-BLOCK",
-	c = "COMMAND", s = "SELECT", S = "S-LINE", [''] = "S-BLOCK", t = "TERMINAL"
+	c = "COMMAND", s = "SELECT", S = "S-LINE", [''] = "S-BLOCK", nt = "NORMAL", t = "TERMINAL"
 }
 
 GetMode = function()
 	local m = vim.api.nvim_get_mode().mode
-	return M.modeMap[m] .. " "
+	if M.modeMap[m] ~= nil then
+		return M.modeMap[m] .. " "
+	else
+		return ""
+	end
 end
 
 GetDate = function()
@@ -28,9 +32,9 @@ GetLSP = function()
 			local sandbox = root:match(".+/([^/]+)$")
 			--local handle = io.popen('p4 opened | grep tnrCRCDecode | sed \'s/^[^#]*//g\'')
 			--local result = handle:read("*a")
-			return string.format('[%s -> %s]',name,sandbox)
+			return string.format('| %s -> %s ',name,sandbox)
 		else
-			return "[" .. name .. "] "
+			return "| " .. name .. " "
 		end
 	else
 		return ''
@@ -42,14 +46,14 @@ GetGitStatus = function()
 	local inRepo = signs.head ~= ''
 
 	return inRepo and string.format(
-	    '[%s: +%s ~%s -%s] ',
+	    '| %s: +%s ~%s -%s ',
     	signs.head, signs.added, signs.changed, signs.removed
   		) or ''
 end
 
 function M.statusline()
 	local sline = " "
-	sline = sline .. GetMode() .. GetGitStatus() .. GetLSP() .. "%=" .. GetDate() .. " " .. GetTime() .. " "
+	sline = sline .. GetMode() .. GetGitStatus() .. GetLSP() .. "%=" .. GetDate() .. " | " .. GetTime() .. " "
 	return sline
 end
 

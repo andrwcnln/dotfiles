@@ -11,7 +11,7 @@ Plug 'MunifTanjim/nui.nvim'
 "Plug 'nvim-neo-tree/neo-tree.nvim', { 'branch': 'v3.x' }
 Plug 'lewis6991/gitsigns.nvim' " OPTIONAL: for git status
 " Plug 'nvim-tree/nvim-web-devicons' " OPTIONAL: for file icons
-Plug 'freddiehaddad/feline.nvim'
+" Plug 'freddiehaddad/feline.nvim'
 Plug 'neovim/nvim-lspconfig'
 " main one
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
@@ -32,7 +32,7 @@ endif
 
 colo mine
 set noshowmode
-set laststatus=3
+set laststatus=2
 set cmdheight=0
 
 set statusline=%{%v:lua.require('plugins.statusline').statusline()%}
